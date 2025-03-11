@@ -1,0 +1,6 @@
+@RestfulCohort_HostAddress = http://localhost:5283
+
+GET {{RestfulCohort_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
