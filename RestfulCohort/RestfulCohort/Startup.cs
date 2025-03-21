@@ -5,6 +5,9 @@ public class Startup{
     {
         services.AddControllers();
         services.AddSwaggerGen();
+
+        services.AddScoped<IBookService, FakeBookService>(); // dependency ınjection
+
     }
 
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
@@ -20,6 +23,9 @@ public class Startup{
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseAuthorization();
+
+        app.UseMiddleware<LoggingMiddleware>(); // Global Logging Middleware
+
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }
     
